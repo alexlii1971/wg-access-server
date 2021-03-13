@@ -22,6 +22,22 @@ Quick Links:
 - [Deploy With Helm](https://place1.github.io/wg-access-server/deployment/2-docker-compose/)
 - [Deploy With Docker-Compose](https://place1.github.io/wg-access-server/deployment/2-docker-compose/)
 
+## Requirement before start
+1.Wireguard server must be already installed before install wg-access-server(this repository), running command line:
+
+**Wireguard install:**
+sudo apt update
+sudo add-apt-repository ppa:wireguard/wireguard
+sudo apt install wireguard
+
+**Configure WireGuard Server**
+umask 077
+wg genkey | tee privatekey | wg pubkey > publickey
+
+
+3.Docker must be already installed, running command line:
+sudo apt install docker.io
+
 ## Running with Docker
 
 Here's a quick command to run the server to try it out.
@@ -48,6 +64,9 @@ phone to try it out: for example, i'll open my browser at http://192.168.0.XX:80
 using the local LAN IP address.
 
 You can connect to the web server on the local machine browser at http://localhost:8000
+
+Uusername: admin, and please note that WG_ADMIN_PASSWORD="example", so adjust your password for admin.
+If there is any other docker UI tools is running at 8000 port, please change the port to others.
 
 ## Running on Kubernetes via Helm
 
