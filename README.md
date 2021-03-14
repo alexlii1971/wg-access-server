@@ -35,9 +35,23 @@ sudo apt install wireguard
 umask 077
 wg genkey | tee privatekey | wg pubkey > publickey
 
+then run:
 
-3.Docker must be already installed, running command line:
+cat privatekey
+
+if you are using portainer to deploy, and then will use it later on.
+
+2.Docker must be already installed, running command line:
 sudo apt install docker.io
+
+3.If you are using portainer to run docker-composer, please run:
+
+docker volume create portainer_data
+docker run -d -p 7000:7000 -p 9000:9000 --name=portainer --restart=always -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
+
+Please note that we are using 7000 port for portainer, since 8000 will be used in wg-access-server by default.
+
+
 
 ## Running with Docker
 
