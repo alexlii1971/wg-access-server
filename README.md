@@ -26,6 +26,7 @@ Quick Links:
 1.Wireguard server must be already installed before install wg-access-server(this repository), running command line:
 
 **Wireguard install:**
+
 sudo apt update
 sudo add-apt-repository ppa:wireguard/wireguard
 sudo apt install wireguard
